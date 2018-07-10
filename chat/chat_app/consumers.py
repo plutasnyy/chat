@@ -26,9 +26,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         message = text_data_json['message']
         room = Room.objects.get(pk=self.room_id)
         user = self.scope['user']
+        print(user, user.username, room, room.title)
         Message.objects.create(content=message, room=room, user=user)
-        #message = Message(room,user)
-        #message.save()
         await self.channel_layer.group_send(
             self.room_group_name,
             {

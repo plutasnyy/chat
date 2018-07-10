@@ -5,6 +5,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     url(r'^chat/', include('chat_app.urls')),
+    url(r'^api/', include('api.urls')),
     url(r'^accounts/', include('account.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='/chat/', permanent=False), name='home')
