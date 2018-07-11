@@ -4,6 +4,7 @@ from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
+    url(r'^frontend/', include('frontend.urls')),
     url(r'^chat/', include('chat_app.urls')),
     url(r'^api/', include('api.urls')),
     url(r'^accounts/', include('account.urls')),
