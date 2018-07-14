@@ -9,5 +9,9 @@ python3 manage.py runserver
 and in the second window:
 ```
 cd chat/frontend
-npm run dev
+npm run server
+```
+your page will be avaible at:
+```
+localhost:8000
 ```
