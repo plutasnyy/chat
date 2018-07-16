@@ -5,6 +5,7 @@ class Room(models.Model):
     text = models.CharField(max_length=255)
     staff_only = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
