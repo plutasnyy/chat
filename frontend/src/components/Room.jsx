@@ -68,9 +68,6 @@ class Room extends Component {
                 <div style={{textAlign: "right"}}>
                     {this.props.user.username} (<a onClick={this.props.logout}>logout</a>)
                 </div>
-
-                {/*KEEP OTHER ELEMENTS*/}
-
             </div>
         )
     }
