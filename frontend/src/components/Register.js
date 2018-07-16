@@ -5,7 +5,7 @@ import {Link, Redirect} from "react-router-dom";
 
 import {auth} from "../actions";
 
-class Register extends Component {
+class Login extends Component {
 
     state = {
         username: "",
@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

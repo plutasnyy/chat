@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {Link} from "react-router-dom";
-import * as auth from "../actions/auth"
+import {Link, Redirect} from "react-router-dom";
+
+import {auth} from "../actions";
 
 class Login extends Component {
 
@@ -17,6 +18,9 @@ class Login extends Component {
     }
 
     render() {
+        if (this.props.isAuthenticated) {
+            return <Redirect to="/"/>
+        }
         return (
             <form onSubmit={this.onSubmit}>
                 <fieldset>
@@ -28,7 +32,6 @@ class Login extends Component {
                             ))}
                         </ul>
                     )}
-
                     <p>
                         <label htmlFor="username">Username</label>
                         <input

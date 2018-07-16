@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
+import {Route, Switch, BrowserRouter, Redirect, Link} from 'react-router-dom';
 
 import {Provider, connect} from "react-redux";
 import {createStore, applyMiddleware} from "redux";
@@ -24,7 +24,10 @@ class RootContainerComponent extends Component {
     PrivateRoute = ({component: ChildComponent, ...rest}) => {
         return <Route {...rest} render={props => {
             if (this.props.auth.isLoading) {
-                return <em>Loading...</em>;
+                return <div>Loading...
+                    <Link to={"/login"}>login</Link>
+                    <Link to={"/register"}>register</Link>
+                </div>;
             } else if (!this.props.auth.isAuthenticated) {
                 return <Redirect to="/login"/>;
             } else {
