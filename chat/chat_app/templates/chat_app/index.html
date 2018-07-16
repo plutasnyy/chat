@@ -19,12 +19,5 @@
       {% endif %}
       <hr>
     </header>
-    What chat room would you like to enter?<br/>
-
-    <ul>
-    {% for room in rooms %}
-        <li><a href="{% url 'room' room.id %}">{{ room.title }}</a></li>
-    {% endfor %}
-    </ul>
 </body>
 </html>
