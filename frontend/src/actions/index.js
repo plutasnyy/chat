@@ -1,3 +1,7 @@
 import * as rooms from "./rooms";
+import * as auth from "./auth";
 
-export {rooms}
+export {
+    rooms,
+    auth,
+}

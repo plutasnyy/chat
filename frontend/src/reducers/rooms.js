@@ -1,27 +1,28 @@
-const initialState = [
-  {text: "Write code!"}
-];
+const initialState = [];
 
 
-export default function rooms(state=initialState, action) {
-  let roomList = state.slice();
+export default function rooms(state = initialState, action) {
+    let roomList = state.slice();
 
-  switch (action.type) {
+    switch (action.type) {
 
-    case 'ADD_ROOM':
-      return [...state, {text: action.text}];
+        case 'ADD_ROOM':
+            return [...state, action.room];
 
-    case 'UPDATE_ROOM':
-      let roomToUpdate = roomList[action.id]
-      roomToUpdate.text = action.text;
-      roomList.splice(action.id, 1, roomToUpdate);
-      return roomList;
+        case 'UPDATE_ROOM':
+            let roomToUpdate = roomList[action.index]
+            roomToUpdate.text = action.room.text;
+            roomList.splice(action.index, 1, roomToUpdate);
+            return roomList;
 
-    case 'DELETE_ROOM':
-      roomList.splice(action.id, 1);
-      return roomList;
+        case 'DELETE_ROOM':
+            roomList.splice(action.index, 1);
+            return roomList;
 
-    default:
-      return state;
-  }
+        case 'FETCH_ROOMS':
+            return [...state, ...action.room];
+
+        default:
+            return state;
+    }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {rooms} from './actions/index.js';
+import {rooms, auth} from '../actions/index.js';
 
 class Room extends Component {
     state = {
@@ -62,6 +62,15 @@ class Room extends Component {
                     ))}
                     </tbody>
                 </table>
+
+                <h2>Welcome to chat</h2>
+                <hr/>
+                <div style={{textAlign: "right"}}>
+                    {this.props.user.username} (<a onClick={this.props.logout}>logout</a>)
+                </div>
+
+                {/*KEEP OTHER ELEMENTS*/}
+
             </div>
         )
     }
@@ -70,6 +79,7 @@ class Room extends Component {
 const mapStateToProps = state => {
     return {
         rooms: state.rooms,
+        user: state.auth.user,
     }
 }
 
@@ -87,6 +97,7 @@ const mapDispatchToProps = dispatch => {
         fetchRooms: () => {
             dispatch(rooms.fetchRooms());
         },
+        logout: () => dispatch(auth.logout()),
     }
 }
 
