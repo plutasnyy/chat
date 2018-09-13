@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'webpack_loader',
     'api',
     'rest_framework',
-    'account',
     'chat_app',
     'channels',
     'django.contrib.admin',

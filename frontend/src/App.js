@@ -8,10 +8,12 @@ import thunk from "redux-thunk";
 import {auth} from "./actions/index";
 import reducer from "./reducers/index";
 
+import RoomManager from "./components/RoomManager";
 import Room from "./components/Room";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import Register from "./components/Register";
+
 
 let store = createStore(reducer, applyMiddleware(thunk));
 
@@ -41,9 +43,10 @@ class RootContainerComponent extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <PrivateRoute exact path="/" component={Room}/>
+                    <PrivateRoute exact path="/" component={RoomManager}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/register" component={Register}/>
+                    <Route exact path="/room/:id/" component={Room}/>
                     <Route component={NotFound}/>
                 </Switch>
             </BrowserRouter>

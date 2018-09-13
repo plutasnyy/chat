@@ -8,7 +8,7 @@ class Room(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.title
+        return self.text
 
     @property
     def group_name(self):
